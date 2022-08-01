@@ -17,6 +17,10 @@ use App\Http\Controllers\OrderController;
 |
 */
 
+Route::get("/", function () {
+    return response()->json(["message" => "Welcome to the API"]);
+});
+
 
 Route::group(['prefix' => 'customer'], function () {
     Route::get('/{id?}', [CustomerController::class, 'get']);
