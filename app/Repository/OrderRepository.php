@@ -14,7 +14,7 @@ class OrderRepository extends Repository
      */
     public static function find(int $id)
     {
-        return Order::with('products')->find($id);
+        return Order::with(['products', 'customer'])->find($id);
     }
 
 
@@ -24,7 +24,7 @@ class OrderRepository extends Repository
      */
     public static function getAll()
     {
-        return Order::with('products')->get();
+        return Order::with(['products', 'customer'])->paginate(10);
     }
 
 

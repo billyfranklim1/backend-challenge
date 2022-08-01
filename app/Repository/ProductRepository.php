@@ -22,7 +22,7 @@ class ProductRepository extends Repository
      */
     public static function getAll()
     {
-        return Product::all();
+        return Product::paginate(10);
     }
 
 

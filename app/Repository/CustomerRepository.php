@@ -23,7 +23,7 @@ class CustomerRepository extends Repository
      */
     public static function getAll()
     {
-        return Customer::all();
+        return Customer::paginate(10);
     }
 
     /**
