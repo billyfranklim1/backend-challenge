@@ -2,10 +2,11 @@
 
 docker-compose up -d
 
-docker-compose exec app php artisan config:clear
-docker-compose exec app php artisan cache:clear
+
 docker-compose exec --user=root app chmod -R 777 /var/www/
 docker-compose exec app composer install
+docker-compose exec app php artisan config:clear
+docker-compose exec app php artisan cache:clear
 docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan migrate
 docker-compose exec app php artisan db:seed
