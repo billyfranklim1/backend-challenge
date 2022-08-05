@@ -19,40 +19,55 @@ Copy the example env file and make the required configuration changes in the .en
 
     cp .env.example .env
 
-Set permission file ./run.sh
+## Environment variables
 
-    chmod +x run.sh
+Configure the database environment variables
 
-Run file ./run.sh
+    DB_CONNECTION=mysql
+    DB_HOST=db
+    DB_PORT=3306
+    DB_DATABASE=backend-challenge
+    DB_USERNAME=root
+    DB_PASSWORD=root
 
-    ./run.sh
+Configure the email environment variables so that sending email works correctly
 
-You can now access the server at http://localhost:8080
+    MAIL_DRIVER=
+    MAIL_HOST=
+    MAIL_PORT=
+    MAIL_USERNAME=
+    MAIL_PASSWORD=
+    MAIL_ENCRYPTION=
+    MAIL_FROM_ADDRESS=
+    MAIL_FROM_NAME=
+
+**Make sure you set the correct database connection information before running the migrations** [Environment variables](#environment-variables)
+
+    php artisan migrate
+
+## Database seeding
+
+**Populate the database with seed data with relationships which includes users, articles, comments, tags, favorites and follows. This can help you to quickly start testing the api or couple a frontend and start using it with ready content.**
+
+Run the database seeder and you're done
+
+    php artisan db:seed
+
+## Start the local development server
+
+    php artisan serve
+
+You can now access the server at http://127.0.0.1:8000
 
 **TL;DR command list**
 
     git clone https://github.com/billyfranklim1/backend-challenge.git
     cd backend-challenge
     cp .env.example .env
-    chmod +x run.sh
-    ./run.sh
-    
-**Make sure you set the correct database connection information before running the migrations** [Environment variables](#environment-variables)
-
     php artisan migrate
+    php artisan db:seed
     php artisan serve
 
-## Database seeding
-
-**Populate the database with seed data with relationships which includes users, articles, comments, tags, favorites and follows. This can help you to quickly start testing the api or couple a frontend and start using it with ready content.**
-
-Open the DummyDataSeeder and set the property values as per your requirement
-
-    database/seeds/DummyDataSeeder.php
-
-Run the database seeder and you're done
-
-    php artisan db:seed
 
 ***Note*** : It's recommended to have a clean database before seeding. You can refresh your migrations at any point to clean the database by running the following command
 
@@ -76,7 +91,7 @@ docker-compose exec app php artisan migrate
 docker-compose exec app php artisan db:seed
 ```
 
-The api can be accessed at [http://localhost:8080/api](http://localhost:8000/api).
+The api can be accessed at [http://127.0.0.1:8080/api](http://127.0.0.1:8000/api).
 
 # Testing API
 
@@ -86,4 +101,4 @@ Run the laravel development server
 
 The api can now be accessed at
 
-    http://localhost:8080/api
+    http://127.0.0.1:8080/api
