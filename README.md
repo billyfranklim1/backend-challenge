@@ -6,6 +6,9 @@ Please check the official laravel installation guide for server requirements bef
 
 Alternative installation is possible without local dependencies relying on [Docker](#docker). 
 
+Acess documentation [here](https://documenter.getpostman.com/view/10910091/Szf6Z9Zo?version=latest).
+
+
 Clone the repository
 
     git clone https://github.com/billyfranklim1/backend-challenge.git
@@ -102,3 +105,6 @@ Run the laravel development server
 The api can now be accessed at
 
     http://127.0.0.1:8080/api
+
+# Documentation
+API documentation can be found at [Postman Documentation](https://documenter.getpostman.com/view/10910091/Szf6Z9Zo?version=latest)

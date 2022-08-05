@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderDetails;
+use Illuminate\Support\Facades\Log;
 
 class OrderRepository extends Repository
 {
@@ -44,7 +45,13 @@ class OrderRepository extends Repository
             $order->products()->sync($params['products']);
         }
 
-        Mail::to($order->customer->email)->send(new OrderDetails($order->id));
+
+        try {
+            Mail::to($order->customer->email)->send(new OrderDetails($order->id));
+        } catch (\Throwable $th) {
+            Log::error(__CLASS__ . '::' . __FUNCTION__ . '=>' . $th->getMessage());
+        }
+
 
         return $order->id;
     }
