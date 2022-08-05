@@ -94,7 +94,7 @@ docker-compose exec app php artisan migrate
 docker-compose exec app php artisan db:seed
 ```
 
-The api can be accessed at [http://127.0.0.1:8080/api](http://127.0.0.1:8000/api).
+The api can be accessed at [http://127.0.0.1:8080/api](http://127.0.0.1:8080/api).
 
 # Testing API
 
